@@ -1,7 +1,7 @@
 import random
 
 words = ["apple", "banana", "orange", "grape", "lemon"]
-count = 10;
+count = 10
 
 word = random.choice(words)
 correctList = list('_' * len(word))
