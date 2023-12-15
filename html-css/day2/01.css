@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  padding: 40px 0 60px 0;
+  margin: auto;
+  background-color: #f2fee9;
+  border-radius: 10px;
+  box-shadow:
+    5px 5px 0px 5px green,
+    15px 15px 0px 5px yellow,
+    25px 25px 0px 5px blue,
+    35px 35px 0px 5px red;
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  border: 2px relative black;
+  border-radius: 5px;
+}
+
+.base-input {
+  align-self: center;
+  height: 30px;
+  width: 300px;
+  margin: 5px 0;
+}
+
+.phone-container {
+  display: flex;
+  justify-content: space-between;
+  width: 315px;
+  margin: 5px 0;
+}
+
+.phone-input {
+  height: 30px;
+  width: 70px;
+  margin: 0 5px;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: right;
+  width: 315px;
+  margin: 5px 5px;
+}
+
+.auth-text {
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+button {
+  border-radius: 5px;
+}
+
+.select-input {
+  height: 30px;
+  width: 300px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.sex-container {
+  margin: 10px 0;
+}
+
+.input-submit {
+  height: 30px;
+  width: 300px;
+  background-color: white;
+}

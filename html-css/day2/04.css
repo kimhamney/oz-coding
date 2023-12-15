@@ -1,0 +1,59 @@
+body {
+  background-color: papayawhip;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  margin: auto;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.title {
+  width: 140px;
+  text-align: left;
+  border-right: 2px solid black;
+}
+
+.weather-container {
+  width: 300px;
+}
+
+.border {
+  border: 2px solid black;
+}
+
+.content-container {
+  background-color: white;
+}
+
+.content-title {
+  text-align: center;
+  text-decoration: underline;
+}
+
+img {
+  width: 400px;
+  height: 300px;
+}
+
+.table-container {
+  background-color: white;
+  width: 100%;
+}
+
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 50px;
+  text-align: center;
+}
