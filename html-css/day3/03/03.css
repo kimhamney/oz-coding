@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
 }
@@ -19,7 +23,7 @@ body {
 .user {
   background-color: white;
   padding: 16px;
-  height: 50px;
+  height: 80px;
 }
 
 .user-column {
@@ -29,7 +33,7 @@ body {
 .user-pic {
   width: 50px;
   height: 50px;
-  margin-left: 10px;
+  margin-right: 10px;
   border-radius: 10px;
   background-color: #fcc41f;
 }
@@ -55,7 +59,7 @@ body {
 
 .chat-form-msg {
   float: left;
-  width: calc(100% - 150px);
+  width: calc(100% - 120px);
   height: 120px;
   border: none;
   resize: none;

@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+  background-color: #fcc41f;
+}
+
+.chat-screen {
+  height: calc(100% - 120px);
+}
+
+.user {
+  background-color: white;
+  padding: 16px;
+  height: 80px;
+}
+
+.user-column {
+  float: left;
+}
+
+.user-pic {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: #fcc41f;
+}
+
+.user-nick,
+.user-count {
+  margin: 5px;
+}
+
+.user-count {
+  font-size: 12px;
+  color: gray;
+}
+
+.chat-form {
+  height: 120px;
+  background-color: white;
+}
+
+.chat-form-field {
+  height: 120px;
+}
+
+.chat-form-msg {
+  float: left;
+  width: calc(100% - 120px);
+  height: 120px;
+  border: none;
+  resize: none;
+  font-size: 24px;
+  padding: 10px;
+}
+
+.chat-form-msg:focus {
+  outline: none;
+}
+
+.chat-form-input {
+  float: right;
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  background-color: #fcc41f;
+  font-size: 18px;
+}
+
+.chat-form-input:active {
+  background-color: #cb9d12;
+}
+
+.chat-screen-texts {
+  padding: 0;
+  list-style-type: none;
+  overflow-y: auto;
+  height: calc(100% - 100px);
+}
+
+.chat-screen-texts > .text {
+  background-color: white;
+  width: 280px;
+  height: 50px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  line-height: 30px;
+  position: relative;
+  left: 20px;
+}
+
+.chat-screen-texts > .text::after {
+  content: "";
+  border-right: 16px solid white;
+  border-bottom: 16px solid transparent;
+  position: absolute;
+  top: 10px;
+  left: -10px;
+}
+
+.chat-screen-texts > .text:hover {
+  background-color: antiquewhite;
+  transition: background-color 0.5s 0.2s ease-in;
+}
+
+.chat-screen-texts > .text:hover::after {
+  border-right: 16px solid antiquewhite;
+  transition: border-right 0.5s 0.2s ease-in;
+}
+
+.chat-screen-texts > #me {
+  background-color: pink;
+  position: relative;
+  left: calc(100% - 310px);
+  text-align: right;
+}
+
+.chat-screen-texts > #me::after {
+  content: "";
+  border-right: 16px solid transparent;
+  border-bottom: 16px solid pink;
+  position: absolute;
+  top: 20px;
+  margin-left: 103%;
+}
+
+.chat-screen-texts > #me:hover {
+  background-color: antiquewhite;
+  transition: background-color 0.5s 0.2s ease-in;
+}
+
+.chat-screen-texts > #me:hover::after {
+  border-bottom: 16px solid antiquewhite;
+  transition: border-bottom 0.5s 0.2s ease-in;
+}
