@@ -1,3 +1,3 @@
 ## Preview
 
-<img src="https://github.com/kimhamney/oz-coding/assets/11283993/ad4a8193-77dd-4204-86ab-a205ca614768" width="400">
+<img src="https://github.com/kimhamney/oz-coding/assets/11283993/5502c20b-4aa3-4312-b9cd-eb99c9aaceec" width="400">
