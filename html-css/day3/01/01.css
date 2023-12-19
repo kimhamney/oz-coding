@@ -1,0 +1,44 @@
+body {
+  background-color: bisque;
+}
+
+.container {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.left-container {
+  background-color: #ffcc00;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  display: inline-block;
+}
+
+#smile {
+  font-size: 2rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+i {
+  font-size: 1.2rem;
+}
+
+.green {
+  color: #4caf50;
+}
+
+.green > i {
+  margin-bottom: 20px;
+}
+
+.right-container {
+  display: inline-block;
+  padding-left: 10px;
+}

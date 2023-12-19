@@ -1,0 +1,120 @@
+body {
+  background-color: #87ceeb;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50%;
+}
+
+.hat1 {
+  position: relative;
+  top: 5px;
+  background-color: black;
+  width: 30px;
+  height: 20px;
+}
+
+.hat2 {
+  position: relative;
+  background-color: black;
+  width: 50px;
+  height: 10px;
+  z-index: 1;
+  top: 5px;
+}
+
+.head {
+  border-radius: 50%;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.eye-container {
+  width: 20px;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+  left: 8px;
+}
+
+.eye-container > * {
+  width: 5px;
+  height: 5px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.eye-left {
+  display: inline;
+}
+
+.eye-left {
+  float: right;
+  display: inline;
+}
+
+.mouse {
+  position: relative;
+  width: 20px;
+  height: 10px;
+  background-color: black;
+  z-index: 1;
+  border-radius: 0 0 20px 20px;
+  margin-top: 1px;
+  left: 8px;
+}
+
+.body {
+  border-radius: 50%;
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.buttons {
+  position: relative;
+  left: 28px;
+  top: 5px;
+}
+
+.buttons > * {
+  width: 5px;
+  height: 5px;
+  background-color: black;
+  border-radius: 50%;
+  margin-top: 8px;
+  z-index: 1;
+}
+
+[class*="arm"] {
+  height: 2px;
+  width: 50px;
+  background-color: brown;
+}
+
+.arm-left {
+  position: relative;
+  rotate: 45deg;
+  left: -40px;
+}
+
+.arm-right {
+  position: relative;
+  rotate: -45deg;
+  right: -50px;
+}
+
+.leg {
+  border-radius: 50%;
+  background-color: white;
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
