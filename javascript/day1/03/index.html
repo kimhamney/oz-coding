@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="name"></h1>
+    <p id="animal"></p>
+    <p id="fruit"></p>
+
+    <script>
+      const nameElement = document.querySelector("#name");
+      let name = prompt("what is your name?");
+      nameElement.textContent = name;
+
+      const animalElement = document.querySelector("#animal");
+      let animal = prompt("what is your favorite animal?");
+      animalElement.textContent = `My favorite animal is ${animal}.`;
+
+      document.querySelector(
+        "#fruit"
+      ).textContent = `My favorite fruit is ${prompt(
+        "What is your favorite fruit?"
+      )}.`;
+    </script>
+  </body>
+</html>
