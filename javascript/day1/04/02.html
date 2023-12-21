@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+
+      .container {
+        position: relative;
+        width: 1300px;
+        height: 450px;
+        overflow: hidden;
+        list-style-type: none;
+      }
+
+      ul li {
+        display: inline-block;
+        flex-wrap: nowrap;
+        width: 400px;
+        height: 450px;
+        position: relative;
+      }
+
+      li:nth-child(1) {
+        background-color: pink;
+      }
+      li:nth-child(2) {
+        background-color: bisque;
+      }
+      li:nth-child(3) {
+        background-color: violet;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="container">
+      <li class="item"></li>
+      <li class="item"></li>
+      <li class="item"></li>
+    </ul>
+    <button class="darkmode" onclick="onClickDarkMode()">🌑</button>
+    <button class="button1" onclick="onClickItem(0)">1</button>
+    <button class="button2" onclick="onClickItem(1)">2</button>
+    <button class="button3" onclick="onClickItem(2)">3</button>
+    <button class="next" onclick="onClickNext()">next</button>
+
+    <script>
+      let darkMode = false;
+      function onClickDarkMode() {
+        document.body.style.backgroundColor = darkMode ? "white" : "black";
+        darkMode = !darkMode;
+      }
+
+      let currentPage = 0;
+      let container = document.querySelector(".container");
+      let pages = document.querySelectorAll(".container li");
+
+      function onClickItem(index) {
+        currentPage = index;
+        container.style.left = index * -400 + "px";
+        container.style.transition = `${0.5}s`;
+      }
+      function onClickNext() {
+        currentPage += 1;
+
+        if (currentPage > 2) {
+          currentPage = 0;
+        }
+
+        onClickItem(currentPage);
+      }
+    </script>
+  </body>
+</html>

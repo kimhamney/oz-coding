@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in</title>
-    <link rel="stylesheet" href="01.css" />
+    <link rel="stylesheet" href="../../../html-css/day2/01/01.css" />
   </head>
   <body>
     <div class="container">
@@ -75,12 +75,26 @@
         <option value="others">그외</option>
       </select>
       <div class="sex-container">
-        <input type="radio" name="sex" id="female" />
+        <input type="radio" name="sex" id="female" class="radio" />
         <label for="female">여</label>
-        <input type="radio" name="sex" id="male" />
+        <input type="radio" name="sex" id="male" class="radio" />
         <label for="male">남</label>
       </div>
-      <input type="submit" value="가입하기" id="signin" class="input-submit" />
+      <button class="input-submit" onclick="onSubmit()">가입하기</button>
     </div>
+    <script>
+      function onSubmit() {
+        let inputs = document.querySelectorAll("input");
+        for (let i = 0; i < inputs.length; i++) {
+          console.log(inputs[i].value);
+        }
+        let location = document.querySelector(".select-input");
+        console.log(location.value);
+        let radios = document.querySelectorAll(".radio");
+        for (let i = 0; i < radios.length; i++) {
+          console.log(radios[i].checked);
+        }
+      }
+    </script>
   </body>
 </html>
