@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        background-color: black;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      h1,
+      p {
+        color: white;
+        text-align: center;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      #input {
+        height: 30px;
+      }
+
+      .click {
+        color: white;
+        border: none;
+        border-radius: 3px;
+        background-color: orange;
+        margin-left: 10px;
+      }
+
+      #replay {
+        height: 50px;
+        width: 100px;
+        align-self: center;
+        background-color: skyblue;
+        border: none;
+        border-radius: 3px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mystery Number 맞추기</h1>
+    <p class="desc">1부터 100사이의 숫자를 입력하세요!</p>
+    <div class="container">
+      <input type="text" id="input" />
+      <button class="click" onclick="onClick()">입력</button>
+    </div>
+    <p id="hint"></p>
+    <button id="replay" onclick="onReplay()" style="display: none">
+      다시하기
+    </button>
+
+    <script>
+      let input = document.getElementById("input");
+      let hint = document.getElementById("hint");
+      let replay = document.getElementById("replay");
+
+      let number = Math.floor(Math.random() * 100);
+
+      document.write(number);
+
+      function onClick() {
+        let value = Math.floor(input.value);
+        if (value === number) {
+          alert("👏👏👏 맞췄습니다!");
+          replay.style.display = "block";
+          hint.textContent = "";
+        } else if (value < number) {
+          hint.textContent = "숫자가 작아요! 조금 더 높여보세요";
+        } else {
+          hint.textContent = "숫자가 커요! 조금 낮춰보세요";
+        }
+      }
+
+      function onReplay() {
+        number = Math.floor(Math.random() * 100);
+        replay.style.display = "none";
+        input.value = "";
+      }
+    </script>
+  </body>
+</html>

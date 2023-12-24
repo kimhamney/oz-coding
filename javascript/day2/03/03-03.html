@@ -7,6 +7,19 @@
   </head>
   <body>
     <h1>4의 배수 5개씩 출력하기</h1>
-    <script></script>
+    <script>
+      let result = "";
+      let count = 0;
+      for (let i = 100; i <= 500; i += 4) {
+        result += i + "&nbsp";
+        count++;
+
+        if (count > 4) {
+          result += "<br>";
+          count = 0;
+        }
+      }
+      document.write(result);
+    </script>
   </body>
 </html>
