@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Today</title>
+  </head>
+  <body>
+    <p id="now"></p>
+    <p id="remain-time"></p>
+    <script>
+      let now = document.getElementById("now");
+      let time = document.getElementById("remain-time");
+
+      function remainTime() {
+        let today = new Date();
+        let open = new Date(2023, 12, 31, 59, 99, 999);
+        now.innerHTML = `현재 날짜와 시간 : ${today}`;
+
+        let nt = today.getTime();
+        let ot = open.getTime();
+
+        sec = parseInt(ot - nt) / 1000;
+        day = parseInt(sec / 60 / 60 / 24);
+        sec = sec - day * 60 * 60 * 24;
+        hour = parseInt(sec / 60 / 60);
+        sec = sec - hour * 60 * 60;
+        min = parseInt(sec / 60);
+        sec = parseInt(sec - min * 60);
+
+        time.innerHTML = `올해의 남은 시간 : ${day}일 ${hour}시간 ${min}분 ${sec}초 남았습니다.`;
+      }
+      setInterval(remainTime, 1000);
+    </script>
+  </body>
+</html>

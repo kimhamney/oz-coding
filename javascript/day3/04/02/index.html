@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구구단</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 3px double black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>구구단 표</h1>
+    <p class="content">2단~9단을 만들어 보세요!</p>
+    <script>
+      let table = document.createElement("table");
+
+      let tr = document.createElement("tr");
+      let tr2 = document.createElement("tr");
+
+      for (let i = 2; i <= 9; i++) {
+        let th = document.createElement("th");
+        th.innerHTML = `${i}단`;
+        th.scope = "col";
+        tr.append(th);
+        table.append(tr);
+
+        let result = "";
+        for (let j = 1; j <= 9; j++) {
+          result += `${i} * ${j} = ${i * j}<br>`;
+        }
+
+        let td = document.createElement("td");
+        td.innerHTML = result;
+        tr2.append(td);
+        table.append(tr2);
+      }
+      document.body.append(table);
+    </script>
+  </body>
+</html>

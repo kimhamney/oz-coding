@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>계산기</title>
+  </head>
+  <body>
+    <p class="title">Click MyCalculator</p>
+    <div class="container">
+      <div class="output-container">
+        <p class="output" id="output">0</p>
+      </div>
+      <div class="number">
+        <button class="num" onclick="input(7)">7</button>
+        <button class="num" onclick="input(8)">8</button>
+        <button class="num" onclick="input(9)">9</button>
+        <button class="num" onclick="input('x')">x</button>
+      </div>
+      <div class="number">
+        <button class="num" onclick="input(4)">4</button>
+        <button class="num" onclick="input(5)">5</button>
+        <button class="num" onclick="input(6)">6</button>
+        <button class="num" onclick="input('/')">/</button>
+      </div>
+      <div class="number">
+        <button class="num" onclick="input(1)">1</button>
+        <button class="num" onclick="input(2)">2</button>
+        <button class="num" onclick="input(3)">3</button>
+        <button class="num" onclick="input('-')">-</button>
+      </div>
+      <div class="number">
+        <button class="num" onclick="init()">C</button>
+        <button class="num" onclick="input(0)">0</button>
+        <button class="num" onclick="input('+')">+</button>
+        <button class="num" onclick="calculate()">=</button>
+      </div>
+    </div>
+
+    <script>
+      let output = document.getElementById("output");
+
+      let first = "";
+      let second = "";
+      let operator = "";
+
+      function input(val) {
+        if (isNaN(val)) {
+          if (!first) return;
+          operator = val;
+        } else {
+          if (operator) {
+            second += val.toString();
+          } else {
+            first += val.toString();
+          }
+        }
+
+        output.innerHTML = first + operator + second;
+      }
+
+      function init() {
+        first = "";
+        second = "";
+        operator = "";
+
+        output.innerHTML = "0";
+      }
+
+      function calculate() {
+        if (!first || !operator || !second) return;
+
+        let result;
+        switch (operator) {
+          case "x":
+            result = Number(first) * Number(second);
+            break;
+          case "/":
+            result = Number(first) / Number(second);
+            break;
+          case "-":
+            result = Number(first) - Number(second);
+            break;
+          case "+":
+            result = Number(first) + Number(second);
+            break;
+        }
+
+        first = result;
+        operator = "";
+        second = "";
+        output.innerHTML = result;
+      }
+    </script>
+  </body>
+</html>

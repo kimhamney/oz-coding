@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스톱워치</title>
+  </head>
+  <body>
+    <h1>⏰스톱워치⏰</h1>
+    <p id="time">경과 시간 : 0 : 0 : 0</p>
+    <button id="start">시작</button>
+    <button id="stop">중지</button>
+    <script>
+      let p = document.getElementById("time");
+      let start = document.getElementById("start");
+      let stop = document.getElementById("stop");
+
+      start.addEventListener("click", onStart);
+      stop.addEventListener("click", onStop);
+
+      let timerId;
+      let time;
+
+      function onStart() {
+        time = new Date().getTime();
+        timerId = setInterval(elapseTime, 10);
+      }
+
+      function elapseTime() {
+        let nowTime = new Date().getTime();
+        let newTime = new Date(nowTime - time);
+
+        let min = newTime.getMinutes();
+        let sec = newTime.getSeconds();
+        let milisec = Math.floor(newTime.getMilliseconds() / 10);
+
+        p.innerHTML = `경과 시간 : ${min} : ${sec} : ${milisec}`;
+      }
+
+      function onStop() {
+        clearInterval(timerId);
+      }
+    </script>
+  </body>
+</html>
