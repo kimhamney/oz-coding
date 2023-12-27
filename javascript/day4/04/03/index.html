@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICE Cream</title>
+  </head>
+  <body>
+    <button onClick="add()">아이스크림 종류 추가</button>
+    <button onClick="printName()">아이스크림 이름 출력</button>
+    <button onclick="printList()">입력한 아이스크림 목록 출력</button>
+    <h3>입력한 아이스크림 목록 :</h3>
+    <h3 id="content"></h3>
+    <script>
+      let content = document.getElementById("content");
+      let inputList = [];
+
+      function add() {
+        inputList.push(prompt("추가하고 싶은 아이스크림을 입력하세요"));
+      }
+
+      function printName() {
+        inputList.forEach(function (val) {
+          alert(val);
+        });
+      }
+
+      function printList() {
+        inputList.forEach(function (val) {
+          content.innerHTML += val + " ";
+        });
+      }
+    </script>
+  </body>
+</html>
