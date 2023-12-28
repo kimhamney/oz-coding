@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>성적표</title>
+    <style>
+      table,
+      td,
+      th {
+        border: 1px solid black;
+        text-align: center;
+      }
+
+      table {
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>떡잎 유치원 멀리뛰기 결과</h1>
+    <table id="table1">
+      <th>이름</th>
+      <th>점수</th>
+    </table>
+    <h3>75점이 넘는 사람 :</h3>
+    <table id="table2">
+      <th>이름</th>
+      <th>점수</th>
+    </table>
+    <script>
+      let table = document.getElementById("table");
+
+      let resultList = {
+        짱구: 45,
+        영구: 75,
+        철수: 95,
+        훈이: 50,
+        유리: 69,
+        수지: 86,
+      };
+
+      let table1 = document.getElementById("table1");
+      let table2 = document.getElementById("table2");
+
+      function printList(list, table) {
+        for (const [key, value] of Object.entries(list)) {
+          let tr = document.createElement("tr");
+          let td1 = document.createElement("td");
+          let td2 = document.createElement("td");
+
+          td1.textContent = key;
+          td2.textContent = value;
+
+          tr.append(td1);
+          tr.append(td2);
+          table.append(tr);
+        }
+      }
+
+      function main() {
+        printList(resultList, table1);
+
+        let filtered = Object.fromEntries(
+          Object.entries(resultList).filter(([k, v]) => v >= 75)
+        );
+        printList(filtered, table2);
+      }
+
+      main();
+    </script>
+  </body>
+</html>
