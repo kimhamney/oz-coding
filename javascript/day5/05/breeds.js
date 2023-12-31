@@ -1,4 +1,4 @@
-const apiRandomDogs = "https://dog.ceo/api/breeds/image/random/42";
+const apiRandomDogs = "https://dog.ceo/api/breeds/image/random/20";
 const apiAllBreeds = "https://dog.ceo/api/breeds/list/all";
 const request1 = new XMLHttpRequest();
 const request2 = new XMLHttpRequest();
@@ -31,15 +31,15 @@ function displayDogs(item) {
 window.addEventListener("load", function () {
   // add dog img list
   request1.open("get", apiRandomDogs);
-  request1.addEventListener("load", function () {
+  request1.onload = function () {
     const response = JSON.parse(request1.response);
     setDogs(response.message);
-  });
+  };
   request1.send();
 
   // add select list
   request2.open("get", apiAllBreeds);
-  request1.addEventListener("load", function () {
+  request2.onload = function () {
     const response = JSON.parse(request2.response);
     Object.keys(response.message).forEach(function (item) {
       const option = document.createElement("option");
@@ -47,7 +47,7 @@ window.addEventListener("load", function () {
       option.value = item;
       select.appendChild(option);
     });
-  });
+  };
   request2.send();
 });
 
@@ -77,10 +77,10 @@ select.addEventListener("change", function () {
 
 more.addEventListener("click", function () {
   request1.open("get", apiRandomDogs);
-  request1.addEventListener("load", function () {
+  request1.onload = function () {
     const response = JSON.parse(request1.response);
     setDogs(response.message);
-  });
+  };
   request1.send();
 });
 
@@ -93,9 +93,9 @@ reset.addEventListener("click", function () {
   currentDogs = [];
 
   request1.open("get", apiRandomDogs);
-  request1.addEventListener("load", function () {
+  request1.onload = function () {
     const response = JSON.parse(request1.response);
     setDogs(response.message);
-  });
+  };
   request1.send();
 });
