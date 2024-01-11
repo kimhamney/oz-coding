@@ -1,7 +1,9 @@
-import requests
 import random
 import json
-from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
 
 def get_input_nums():
     print("--- 로또 입력 메뉴 ---")
@@ -45,19 +47,21 @@ def get_winning_nums(round):
 
 def crawling_lotto_data(round):
     url = f"https://dhlottery.co.kr/gameResult.do?method=byWin&drwNo={round}"
-    html = requests.get(url).text
-    soup = BeautifulSoup(html, "html.parser")
-    win_result_tag = soup.find(name="div", attrs={"class":"win_result"})
 
-    # 당첨번호 6개 읽기
-    num_win_tag = win_result_tag.find(name="div", attrs={"class":"num win"})
-    p_tag = num_win_tag.find("p")
-    win_nums = [int(x.text) for x in p_tag.find_all("span")]
+    options = webdriver.ChromeOptions()
+    options.add_argument("headless") # 창 숨기는 옵션 추가
 
-    # 보너스 번호 읽기
-    num_bonus_tag = win_result_tag.find(name="div", attrs={"class":"num bonus"})
-    p_tag = num_bonus_tag.find("p")
-    bonus_num = int(p_tag.find("span").text)
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+    driver.get(url)
+
+    # 당첨번호 + 보너스번호 읽기
+    ball_elements = driver.find_elements(By.CLASS_NAME, "ball_645")
+    ball_nums = [int(i.text) for i in ball_elements]
+
+    win_nums = ball_nums[:6]
+    bonus_num = ball_nums[-1]
+
+    driver.quit()
 
     # file에 저장
     save_nums(round, win_nums, bonus_num)
