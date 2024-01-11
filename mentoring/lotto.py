@@ -72,16 +72,16 @@ def load_nums(round):
             if round_data:
                 return round_data
     except Exception as e:
-            print(e)
             return None
 
+# 파일에서 데이터를 불러온 뒤 데이터 추가한 후 다시 저장
 def save_nums(round, win_nums, bonus_num):
     load_datas = {}
     try:
         with open("winning_nums.json", 'r') as file:
             load_datas = json.load(file)
     except Exception as e:
-        print(e)
+        pass
 
     load_datas[round] = {"win_nums": win_nums, "bonus_num": bonus_num}
 
