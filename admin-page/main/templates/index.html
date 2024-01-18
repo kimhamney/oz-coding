@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-3">
+  <form class="row row-cols-lg-auto g-3 align-items-center justify-content-between">
+    <div class="col-auto left-container row row-cols-lg-auto">
+      <div class="col-auto">
+        <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+        <select class="form-select category-select" id="inlineFormSelectPref">
+          <option selected>카테고리</option>
+          <option>아우터</option>
+          <option>신발</option>
+          <option>상의</option>
+          <option>하의</option>
+          <option>가방</option>
+          <option>패션잡화</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="제품명을 입력해주세요"
+          aria-label="default input example" />
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-primary">조회</button>
+      </div>
+    </div>
+    <div class="col-auto right-container row row-cols-lg-auto">
+      <div class="col-auto">
+        <button type="button" class="btn btn-success">수정</button>
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-danger">삭제</button>
+      </div>
+    </div>
+  </form>
+  <div class="container mt-3">
+    <table class="table table-striped table-sm">
+      <thead>
+        <th>선택</th>
+        <th>카테고리</th>
+        <th>상품</th>
+        <th>가격</th>
+        <th>판매수</th>
+        <th>리뷰수</th>
+      </thead>
+      <tbody id="data-table">
+        <!-- 추후 크롤링한 데이터가 들어가는 자리 -->
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
