@@ -1,20 +1,11 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
-
-#셀레니움에 다양한 옵션을 적용시키기 위한 패키지
 from selenium.webdriver.chrome.options import Options
-
-#크롬 드라이버 매니저를 실행시키기 위해 설치해주는 패키지
 from selenium.webdriver.chrome.service import Service
-#자동으로 크롬 드라이브를 최신으로 유지해주는 패키지 
 from webdriver_manager.chrome import ChromeDriverManager
-#클래스, 아이디, css_selector를 이용하고자 할때
 from selenium.webdriver.common.by import By
-#키보드 입력
 from selenium.webdriver.common.keys import Keys
-
 import pymysql
-
 import time
 import re
 
@@ -71,7 +62,6 @@ def get_datas():
     options_.add_experimental_option("detach", True)
     options_.add_experimental_option("excludeSwitches", ["enable-logging"])
 
-    #크롬 드라이버 매니저를 자동으로 설치되도록 실행시키는 코드
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options_)
 
