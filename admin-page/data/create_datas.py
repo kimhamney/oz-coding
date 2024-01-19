@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-import pymysql
+import sqlite3
 import time
 import re
 
@@ -14,13 +14,7 @@ def main():
     execute_db(datas)
     
 def execute_db(datas):
-    connection = pymysql.connect(
-        host='127.0.0.1',
-        user='root',
-        password='1111',
-        db='kreamproducts',
-        charset='utf8mb4',
-        cursorclass=pymysql.cursors.DictCursor)
+    connection = sqlite3.connect('./products.db')
 
     create_table(connection)
     insert_datas(connection, datas)
@@ -30,10 +24,10 @@ def insert_datas(connection, datas):
     
     for data in datas:
         for i in data:
-            sql = '''INSERT INTO products(name, category, price, url, image_url, review, sales) 
-                      VALUES(%s, %s, %s, %s, %s, %s, %s)
-                '''
-            cursor.execute(sql, (i['name'], i['category'], i['price'], i['url'], i['image_url'], i['review'], i['sales']))
+            sql = f'''INSERT INTO products(name, category, price, url, image_url, review, sales) 
+                      VALUES("{i['name']}", "{i['category']}", {i['price']}, "{i['url']}", "{i['image_url']}", {i['review']}, {i['sales']})
+                  '''
+            cursor.execute(sql)
 
     connection.commit()
 
@@ -41,14 +35,14 @@ def create_table(connection):
     cursor = connection.cursor()
 
     sql = ''' CREATE TABLE products (
-            id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(255),
-            category VARCHAR(255),
-            price INT,
-            url VARCHAR(255),
-            image_url VARCHAR(255),
-            review INT,
-            sales INT
+            id INTEGER PRIMARY KEY,
+            name TEXT,
+            category TEXT,
+            price INTEGER,
+            url TEXT,
+            image_url TEXT,
+            review INTEGER,
+            sales INTEGER
           )
           '''
     cursor.execute(sql)

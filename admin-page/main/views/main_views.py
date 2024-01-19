@@ -1,17 +1,14 @@
 from flask import Blueprint, url_for, render_template, request
 from werkzeug.utils import redirect
 from main.models import Product
-import pymysql
+import sqlite3
+import os.path
 
 bp = Blueprint('main', __name__, url_prefix='/')
 
-connection = pymysql.connect(
-    host='127.0.0.1',
-    user='root',
-    password='1111',
-    db='kreamproducts',
-    charset='utf8mb4',
-    cursorclass=pymysql.cursors.DictCursor)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(BASE_DIR, "../../data/products.db")
+connection = sqlite3.connect(db_path, check_same_thread=False)
 
 def load_products():
     cursor = connection.cursor()
