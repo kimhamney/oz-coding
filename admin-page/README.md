@@ -1,6 +1,6 @@
 # Admin Page
 
-[View Demo](http://3.37.210.169/)
+[View Demo](kimhamney.pythonanywhere.com)
 
 ## 🖥️ 프로젝트 소개
 
